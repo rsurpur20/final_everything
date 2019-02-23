@@ -2,7 +2,7 @@ import pyglet
 from pyglet.window import key
 from pyglet.window import Window
 from pyglet.gl import gl
-
+import time
 
 word_list = [] #Letters are added here to see if they form a word
 correct = 0 #Number of correct words
@@ -675,7 +675,7 @@ def on_key_press(symbol, modifiers):
 														font_size = 36,
 														x = (window.width//2), y = (window.height//2),
 														anchor_x = 'center', anchor_y = 'center')
-
+							
 							#Draws the final screen with their grade
 							@window.event
 							def on_draw():
@@ -684,6 +684,7 @@ def on_key_press(symbol, modifiers):
 								grade_received.draw()
 								final_text.draw()
 								gl.glClearColor(*background_color)
+
 
 #--------------------------------------------------------------------------
 
@@ -724,6 +725,5 @@ def on_draw():
 	word_instructions_text4.draw()
 	word_instructions_text5.draw()
 	word_instructions_text6.draw()
-
 
 pyglet.app.run()

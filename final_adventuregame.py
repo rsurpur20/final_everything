@@ -39,6 +39,7 @@ Maxwell Brown'21 made the music using Garage Band
 import pyglet
 from pyglet.window import key
 from pyglet.window import Window
+import time
 
 window = pyglet.window.Window(800,600)
 
@@ -1118,19 +1119,15 @@ def on_key_press(symbol, modifiers):
 			continue_text5.draw()
 
 	if (symbol == key._4): #Student takes the test
-		# music.pause()
 		#This imports the mini game which is in another file as well as the variable that will affect the game_score
-		import final_wordgame
-
+		import final_wordgame.py
 		final_wordgame
-
 		if (final_wordgame.correct >= 9):
 			game_score += 2
 		elif (final_wordgame.correct >= 5):
 			game_score += 1
 		else:
 			game_score += 0
-
 		print(final_wordgame.correct)
 	#-------------------------------------------
 
@@ -1234,12 +1231,9 @@ def on_key_press(symbol, modifiers):
 			continue_text9.draw()
 
 	if (symbol == key._8): #Plays the game
-
 		#Similar to the last import for the other mini game
-		import pygletcode
-
+		import pygletcode.py
 		pygletcode
-
 		if (pygletcode.score >= 2250):
 			game_score += 2
 		elif (pygletcode.score >= 1500):
