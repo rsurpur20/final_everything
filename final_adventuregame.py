@@ -16,7 +16,11 @@ both the time constraint and the need to eat healthy foods. This game was especi
 faced was collision dectection. I figure out a way to fix this problem- I made the image's x and y location at the middle of the image
 then, using if statements, I checked if an image's location was in the range of another image's x + or - half the width of the image,
 or the image's y location + or - half the width of the imageself.This is also easier for the computer to run quickly. Overall making this game, especially using a library that I was unfamilar with was a fun learning experience.
+Also the black color background was intentional, because any other color would distract from the objects falling down.
 
+Also as far as our code, we could not use certain key topics from class such as while loops and classes because they didn't work well with Pyglet.
+In order to run the program, the files all load the first time they are run from the terminal. We also found that if the other files don't load,
+it isn't an issue with our code, but just the computer not loading the files. We found that restarting the terminal when the files don't load, works.
 
 Sources
 https://pyglet.readthedocs.io/en/pyglet-1.3-maintenance/programming_guide/keyboard.html#keyboard-events
@@ -40,6 +44,7 @@ import pyglet
 from pyglet.window import key
 from pyglet.window import Window
 import time
+from pyglet.gl import gl
 
 window = pyglet.window.Window(800,600)
 
@@ -1129,11 +1134,13 @@ def on_key_press(symbol, modifiers):
 		else:
 			game_score += 0
 		print(final_wordgame.correct)
+
 	#-------------------------------------------
 
 	if (symbol == key._5): #Moves onto next decision which is the sports one
 		@window.event
 		def on_draw():
+			gl.glClearColor(0,0,0,1)
 			window.clear()
 			sports_title_text.draw()
 			sports_description_text.draw()
@@ -1232,6 +1239,7 @@ def on_key_press(symbol, modifiers):
 
 	if (symbol == key._8): #Plays the game
 		#Similar to the last import for the other mini game
+
 		import pygletcode.py
 		pygletcode
 		if (pygletcode.score >= 2250):
@@ -1346,7 +1354,7 @@ def on_key_press(symbol, modifiers):
 
 #-------------------------------------------------------------------
 
-
+music = pyglet.resource.media("background_music.wav")
 #This is the initial draw screen which displays the intro screen
 @window.event
 def on_draw():
@@ -1360,8 +1368,8 @@ def on_draw():
 	instructions_text5.draw()
 	instructions_text5.draw()
 # adding music_____________________
-music = pyglet.resource.media("background_music.wav")
-music.play()
+
+	music.play()
 # _________________________________
 
 pyglet.app.run() #Runs the code

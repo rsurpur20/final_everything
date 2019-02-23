@@ -84,7 +84,7 @@ word_instructions_text6 = pyglet.text.Label(word_instructions6,
 							anchor_x='center', anchor_y='center')
 
 #Text for final screen
-final = ("Leave the window to return back to the Choate life.")
+final = ("Click back into the game window in order to keep playing.")
 
 final_text = pyglet.text.Label(final,
 							font_name='Times New Roman',
@@ -675,7 +675,7 @@ def on_key_press(symbol, modifiers):
 														font_size = 36,
 														x = (window.width//2), y = (window.height//2),
 														anchor_x = 'center', anchor_y = 'center')
-							
+
 							#Draws the final screen with their grade
 							@window.event
 							def on_draw():

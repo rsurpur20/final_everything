@@ -89,7 +89,7 @@ frenchfrydistancex=frenchfry.width/2+user.width/2
 frenchfrydistancey=frenchfry.height/2+user.height/2
 
 score=0
-time=901 #given 90 seconds
+time=10 #given 90 seconds
 
 # this is as soon as the user begins the game
 @window.event
@@ -226,17 +226,21 @@ def on_key_press(symbol, modifiers):
                                               anchor_x='center', anchor_y='center'
                                              )
                     nothealthy_label.draw()
+                endinstructions="Click back into the main game to keep playing"
+                endinstructions_label = pyglet.text.Label(endinstructions,
+                                          font_name='Times New Roman',
+                                          font_size=15,
+                                          x=window.width/2, y=window.height/2-120,
+                                          anchor_x='center', anchor_y='center'
+                                         )
                 timeup_label.draw()
                 finalscore_label.draw()
+                endinstructions_label.draw()
 
-
-lunchmusic=pyglet.resource.media("Lunchtime.wav")
 @window.event #this event helps refresh the window if there are changes within it
 def on_draw():
     # below is a introduction screen
     window.clear()
-    global lunchmusic
-    lunchmusic.play()
     # front page when the game is first opened
     start="Dinner Time"
     start_label = pyglet.text.Label(start,
